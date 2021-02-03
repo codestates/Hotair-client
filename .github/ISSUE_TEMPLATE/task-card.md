@@ -28,6 +28,6 @@ assignees: ''
 
 ### Labels
 - Estimated time: `E: 1h`
-- Group : `client`, `server`
-- Sprint: `Sprint__NUMBER__`
+- Group : `client`
+- Sprint: `Sprint__`
 - Urgency: `High`, `Middle`, `Low`
