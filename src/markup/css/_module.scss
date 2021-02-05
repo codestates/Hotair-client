@@ -1,0 +1,28 @@
+@import "color";
+
+$btn-radius: 3px;
+$big-radius: 6px;
+
+button[class^='btn'],
+input{
+  border-radius: $btn-radius;
+}
+.big-round{
+  border-radius: $big-radius;
+}
+.semi-title{
+  font-size: 1.2em;
+}
+
+.disabled{
+  display: none;
+}
+.text-green{
+  background: $color-green;
+  border-radius: $btn-radius;
+  font-size: 16px;
+  padding-bottom: 2px;
+}
+.round{
+  border-radius: 100%;
+}
