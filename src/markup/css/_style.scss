@@ -112,15 +112,20 @@ body {
 }
 .channels, .members{
   background: $dark-level3;
-  width: 24%;
+  width: 32%;
+  max-width: 300px;
 }
-.title-members{
-  width: 310px;
+.title-members, .now-chan{
   height: 72px;
   padding: 20px 40px ;
 }
+.now-chan{
+  background: $dark-level4;
+}
 .chatting{
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 // 채널 리스트
@@ -158,12 +163,70 @@ body {
 }
 
 
-
-.img-container{
-  width: 42px;
-  height: 42px;
-  background-size: cover;
+// chat
+.real-chatting{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-end;
 }
+.item-chat{
+  display: grid;
+  grid-template:
+  "avatar writer likes" 30px
+  "avatar text likes" 1fr
+  /80px 1fr 80px ;
+  padding: 12px 20px;
+  &:hover{
+    background: $dark-level2;
+  }
+}
+.avatar-grid{
+  grid-area: avatar;
+  display: flex;
+  justify-content: center;
+}
+.writer{
+  grid-area: writer;
+}
+.text-chat{
+  grid-area: text;
+  white-space: normal;
+  word-break: normal;
+}
+.likes{
+  grid-area: likes;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+
+// chat-input
+textarea{
+  width: 100%;
+  background: $bg-chat;
+  border: none;
+  resize: none;
+  overflow: hidden;
+  padding: 14px 20px 14px 40px;
+  font-size: 1rem;
+}
+.input-chat{
+  display: flex;
+  margin: 20px 0 30px;
+}
+button.send-messages{
+  background-image: url("./img/paper-plane.png");
+  background-color: $bg-chat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+
+  width: 50px;
+  color: transparent;
+}
+
 
 // 임시 이미지 할당
 .soonduck{

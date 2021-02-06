@@ -7,6 +7,13 @@
   <meta http-equiv='X-UA-Compatible' content='ie=edge'>
   <title>Hotair</title>
   <link rel='stylesheet' href='css/main.scss'>
+  <script>
+    const resize = (obj) => {
+      obj.style.height = "0";
+      obj.style.height = (obj.scrollHeight)+"px";
+    }
+
+  </script>
 </head>
 <body>
 <h1 class='title disabled'>Hotair</h1>
@@ -28,48 +35,69 @@
     <button class='not-mobile btn-out disabled'>X</button>
     <ul class='list-chan'>
       <li class='item-chan'>
-        <div class='img-container round soonduck'></div>
+        <div class='img-container middle round soonduck'></div>
         <span class='chan-name'>Lobby</span>
       </li>
       <li class='item-chan'>
-        <div class='img-container round otaku'></div>
+        <div class='img-container middle round otaku'></div>
         <span class='chan-name'>otaku</span>
       </li>
     </ul>
   </section>
   <!--채팅창-->
   <section class='chatting'>
-    <h2 class='semi-title'>Lobby</h2>
-    <ul class='list-chat'>
-      <li class='item-chat'>
-        <img src='' alt='profile'>
-        <span class='username-chat'>soonduck</span>
-        <span class='date-chat'>방금 전</span>
-        <p class='text-chat️'>hi</p>
-        <i class='heart-active clicked'>❤️</i>
-        <p class='count-likes'>123</p>
-      </li>
-      <li class='item-chat'>
-        <img src='' alt='profile'>
-        <span class='username-chat'>soonduck</span>
-        <span class='date-chat'>방금 전</span>
-        <p class='text-chat'>hi hi</p>
-        <!--      <i class='heart-active clicked'>❤️</i>-->
-        <!--      <span class='count-likes'>123</span>-->
-      </li>
-      <li class='item-chat'>
-        <img src='' alt='profile'>
-        <span class='username-chat'>soonduck</span>
-        <span class='date-chat'>방금 전</span>
-        <p class='text-chat'>...</p>
-        <!--      <i class='heart-active clicked'>❤️</i>-->
-        <!--      <span class='count-likes'>123</span>-->
-      </li>
-    </ul>
-    <form action='#' class='input-chat' method='post'>
-      <label for='inputChat'></label><input id='inputChat' type='text'>
-      <button class='btn-send-messages'>send</button>
-    </form>
+    <h2 class='semi-title now-chan'>Lobby</h2>
+    <div class='real-chatting'>
+      <ul class='list-chat'>
+        <li class='item-chat'>
+          <div class='avatar-grid'>
+            <div class='round large img-container soonduck avatar-chat'></div>
+          </div>
+          <div class='writer'>
+            <span class='username-chat'>soonduck</span>
+            <span class='date-chat'>방금 전</span>
+          </div>
+          <pre class='text-chat'>hi1231234124324 erwjprweir ewjrijerpw ejwiejfip qdjiqwddpj daidjadia wdjaidpawjd</pre>
+          <div class='likes'>
+            <i class='heart-active clicked'>❤️</i>
+            <p class='count-likes'>123</p>
+          </div>
+        </li>
+        <li class='item-chat'>
+          <div class='avatar-grid'>
+            <div class='round large img-container soonduck avatar-chat'></div>
+          </div>
+          <div class='writer'>
+            <span class='username-chat'>soonduck</span>
+            <span class='date-chat'>방금 전</span>
+          </div>
+          <p class='text-chat'>hi hi</p>
+          <div class='likes'>
+            <i class='heart-active clicked'>❤️</i>
+            <p class='count-likes'>123</p>
+          </div>
+        </li>
+        <li class='item-chat'>
+          <div class='avatar-grid'>
+            <div class='round large img-container soonduck avatar-chat'></div>
+          </div>
+          <div class='writer'>
+            <span class='username-chat'>soonduck</span>
+            <span class='date-chat'>방금 전</span>
+          </div>
+          <p class='text-chat'>...</p>
+          <div class='likes'>
+            <i class='heart-active clicked'>❤️</i>
+            <p class='count-likes'>123</p>
+          </div>
+        </li>
+      </ul>
+      <form action='#' class='input-chat' method='post'>
+        <label for='inputChat'></label>
+        <textarea id='inputChat' rows='1' onkeydown='resize(this)' onkeyup='resize(this)'></textarea>
+        <button class='send-messages' type='button'>s</button>
+      </form>
+    </div>
   </section>
   <!--멤버 리스트-->
   <section class='members side-active'>
@@ -77,11 +105,11 @@
     <button class='not-mobile btn-out disabled'>X</button>
     <ul class='list-member'>
       <li class='item-member'>
-        <div class='img-container round soonduck'></div>
+        <div class='img-container round middle soonduck'></div>
         <span class='member-name'>soonduck</span>
       </li>
       <li class='item-member'>
-        <div class='img-container round real-soonduck'></div>
+        <div class='img-container round middle real-soonduck'></div>
         <span class='member-name'>real soonduck</span>
       </li>
     </ul>
