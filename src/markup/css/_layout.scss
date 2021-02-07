@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
 }
@@ -19,10 +20,9 @@ body, html {
       width: 100%;
     }
   }
-  .wrap-login{
+  .wrap-login {
     width: 750px;
   }
-
 }
 
 // mobile
@@ -45,11 +45,52 @@ body, html {
     }
   }
 
-
   // mobile - login
-  .wrap-login{
+  .wrap-login {
     width: 500px;
   }
-
-
+  .social-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn-active {
+      display: none;
+    }
+    .kakao-btn {
+      background-image: url('./img/kakao-logo.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: inherit;
+      width: 55px;
+      height: 55px;
+      // ! btn- 으로 시작되는것은 기본 padding-bottom 이 3px 고정이라 안바뀐다.
+      padding: 0px;
+      margin: 10px;
+      border-radius: 100%;
+    }
+    .google-btn {
+      background-image: url('./img/google-logo.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: inherit;
+      width: 55px;
+      height: 55px;
+      // ! btn- 으로 시작되는것은 기본 padding-bottom 이 3px 고정이라 안바뀐다.
+      padding: 0px;
+      margin: 10px;
+      border-radius: 100%;
+    }
+    .github-btn {
+      background-image: url('./img/github-logo.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: inherit;
+      width: 55px;
+      height: 55px;
+      // ! btn- 으로 시작되는것은 기본 padding-bottom 이 3px 고정이라 안바뀐다.
+      padding: 0px;
+      margin: 10px;
+      border-radius: 100%;
+    }
+  }
 }
