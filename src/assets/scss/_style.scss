@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import 'color';
+
+body * {
+  font-family: 'Noto Sans KR', sans-serif;
+  letter-spacing: 1px;
+  outline: none;
+}
+
+body {
+  color: $font-color;
+  background: $main-dark;
+}
+
+//인덱스
+.bg-airBalloon {
+  position: absolute;
+  z-index: -1;
+  top: 10%;
+}
+
+.welcome,
+.join-us,
+.btn-signUp,
+.btn-login,
+.social-head {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.bg-airBalloon,
+.img-logo {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+//로그인
+
+.wrap-login,
+.wrap-join {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  @at-root section.join,
+    section.login {
+    background: $bg-white;
+    padding: 45px 40px;
+  }
+}
+
+.welcome,
+.join-us,
+.wrap-guest {
+  display: block;
+  text-align: center;
+  margin: 15px 0;
+
+  @at-root .guest-login {
+    border-bottom: 1px $font-color solid;
+  }
+}
+
+// input
+
+.wrap-join {
+  width: 500px;
+}
+
+.wrap-login,
+.wrap-join {
+  input,
+  button[class^='btn-'] {
+    text-align: center;
+    height: 45px;
+    font-size: 16px;
+    padding-bottom: 3px;
+
+    &:last-child {
+      margin-top: 10px;
+      margin-bottom: 16px;
+    }
+  }
+
+  input {
+    width: 100%;
+    background: $bg-input;
+    color: $main-dark-disabled;
+    margin: 4px 0 10px 0;
+
+    &:focus,
+    &:hover {
+      background: $font-color;
+      color: $main-dark;
+    }
+  }
+}
+
+// join
+.btn-signUp,
+.btn-login {
+  background: #f97ca2;
+  width: 100%;
+  display: block;
+
+  &:hover,
+  &:focus {
+    background: $btn-hover;
+  }
+}
+
+.link-login,
+.link-join {
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+// 메인페이지
+.wrap-main {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.now-chan {
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+}
+.channels-side,
+.members-side {
+  background: $dark-level3;
+}
+.title-members,
+.now-chan {
+  padding: 20px 40px;
+}
+.now-chan {
+  background: $dark-level4;
+}
+.real-chatting {
+  z-index: -2;
+}
+.chatting {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// 채널 리스트
+
+.wrap-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 18px 15px 40px;
+}
+.item-member,
+.item-chan {
+  display: flex;
+  align-items: center;
+  span {
+    max-width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 15px;
+  }
+}
+
+.item-chan,
+.item-member {
+  &:hover {
+    background: $dark-level4;
+  }
+}
+.item-chan,
+.item-member {
+  padding: 12px 40px;
+}
+.create-chan {
+  display: block;
+  background: $bg-chat;
+  width: 42px;
+  height: 42px;
+}
+
+// chat
+.real-chatting {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+.item-chat {
+  display: grid;
+  grid-template:
+    'avatar writer likes' 30px
+    'avatar text likes' 1fr
+    /80px 1fr 80px;
+  padding: 12px 20px;
+  &:hover {
+    background: $dark-level2;
+  }
+}
+.avatar-grid {
+  grid-area: avatar;
+  display: flex;
+  justify-content: center;
+}
+.writer {
+  grid-area: writer;
+}
+.text-chat {
+  grid-area: text;
+  white-space: normal;
+  word-break: normal;
+}
+.likes {
+  grid-area: likes;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+// chat-input
+textarea {
+  width: 100%;
+  background: $bg-chat;
+  border: none;
+  resize: none;
+  overflow: hidden;
+  padding: 14px 20px 14px 40px;
+  font-size: 1rem;
+  &::placeholder {
+    color: $bg-input;
+  }
+}
+.input-chat {
+  display: flex;
+  margin: 20px 0 30px;
+}
+button.send-messages {
+  background-image: url('../img/paper-plane.png');
+  background-color: $bg-chat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+
+  width: 50px;
+  color: transparent;
+  padding-right: 30px;
+}
+
+// 임시 이미지 할당
+.soonduck {
+  background-image: url('../img/chan-avatar.png');
+}
+.real-soonduck {
+  background-image: url('../img/soonduck.png');
+}
+.otaku {
+  background-image: url('../img/profile1.png');
+}

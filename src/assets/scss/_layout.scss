@@ -1,0 +1,250 @@
+@import 'color';
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  // pc - index
+  .bg-airBalloon {
+    right: 15%;
+    height: 300px;
+  }
+  // pc - 로그인
+  .logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+
+    .img-logo {
+      width: 100%;
+    }
+  }
+  .wrap-login {
+    width: 750px;
+  }
+  .login {
+    display: flex;
+  }
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 70px;
+    gap: 15px;
+
+    button[class$='btn'] {
+      text-align: center;
+      width: 100%;
+      color: $dark-level4;
+      height: 45px;
+      padding-left: 58px;
+      text-transform: uppercase;
+
+      background-repeat: no-repeat;
+      background-size: 28px;
+      background-position: 23px center;
+
+      font-size: 0.8rem;
+
+      &.kakao-btn {
+        background-color: #ffd400;
+        background-image: url(../img/kakao-pc.png);
+      }
+
+      &.google-btn {
+        background-image: url(../img/google-logo.svg);
+      }
+
+      &.github-btn {
+        background-image: url(../img/github-logo.svg);
+      }
+    }
+    .link-join {
+      margin: 0;
+    }
+  }
+  // pc - app
+  .members-side,
+  .channels-side {
+    width: 32%;
+    max-width: 300px;
+  }
+  .now-chan {
+    height: 72px;
+  }
+  .menu-icon {
+    display: none;
+  }
+}
+
+// mobile
+@media screen and (max-width: 1023px) {
+  html {
+    font-size: 22px;
+  }
+  // mobile-index
+  // mobile - img
+  .bg-airBalloon {
+    right: 4%;
+    height: 35%;
+    max-width: 200px;
+  }
+  .logo {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+
+    .img-logo {
+      width: 100%;
+    }
+  }
+
+  // mobile - login
+  .wrap-login {
+    width: 500px;
+  }
+  .social-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn-active {
+      display: none;
+    }
+
+    .kakao-btn {
+      background-image: url('../img/kakao-logo.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: inherit;
+      width: 55px;
+      height: 55px;
+      // ! btn- 으로 시작되는것은 기본 padding-bottom 이 3px 고정이라 안바뀐다.
+      padding: 0px;
+      margin: 10px;
+      border-radius: 100%;
+    }
+
+    .google-btn {
+      background-image: url('../img/google-logo.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: inherit;
+      width: 55px;
+      height: 55px;
+      // ! btn- 으로 시작되는것은 기본 padding-bottom 이 3px 고정이라 안바뀐다.
+      padding: 0px;
+      margin: 10px;
+      border-radius: 100%;
+    }
+
+    .github-btn {
+      background-image: url('../img/github-logo.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: inherit;
+      width: 55px;
+      height: 55px;
+      // ! btn- 으로 시작되는것은 기본 padding-bottom 이 3px 고정이라 안바뀐다.
+      padding: 0px;
+      margin: 10px;
+      border-radius: 100%;
+    }
+  }
+  .link-join {
+    margin-bottom: 25px;
+  }
+  // mobile menu icon
+  .menu-icon {
+    position: absolute;
+    right: 5%;
+    top: 1rem;
+  }
+  .menu-burger {
+    display: inline;
+    width: 24px;
+    position: sticky;
+    cursor: pointer;
+  }
+  .menu-friends {
+    display: inline;
+    width: 26px;
+    position: sticky;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  // mobile chat
+  .now-chan {
+    height: 3.6rem;
+  }
+  // mobile side
+  .chan-name,
+  .member-name {
+    font-weight: 300;
+  }
+  // mobile menu & animation
+  .wrap-main {
+    section[class$='-side']:not(.side-active) {
+      display: none;
+    }
+    .side-disabled {
+      position: absolute;
+      background: $dark-level4-overlay;
+      width: 400px;
+      height: 100%;
+      &.members-side {
+        animation: menu-on-memb 0.4s reverse both;
+        right: 0;
+      }
+      &.channels-side {
+        animation: menu-on-chan 0.4s reverse both;
+        left: 0;
+      }
+    }
+    .side-active {
+      position: absolute;
+      height: 100%;
+      width: 380px;
+      background: $dark-level4-overlay;
+      &.members-side {
+        right: 0;
+        animation: menu-on-memb 0.4s;
+      }
+      &.channels-side {
+        animation: menu-on-chan 0.4s;
+        left: 0;
+      }
+    }
+  }
+  .text-chat,
+  .date-chat {
+    font-weight: 300;
+  }
+  .text-chat {
+    margin-top: 10px;
+  }
+  @keyframes menu-on-chan {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes menu-on-memb {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/main.scss" />
+    <title>Hotair</title>
+  </head>
+  <body>
+    <h1 class="logo pc disabled">
+      <img class="img-logo" src="./css/img/logo.svg" alt="Hotair" />
+    </h1>
+    <img
+      src="./css/img/bg-balloon.svg"
+      alt="hot air balloon"
+      class="bg-airBalloon"
+    />
+    <!--login-->
+    <div class="wrap-login">
+      <h1 class="logo mobile">
+        <img class="img-logo" src="./css/img/logo.svg" alt="Hotair" />
+      </h1>
+      <h2 class="welcome semi-title">Welcome!</h2>
+      <!--일반 로그인-->
+      <section class="login big-round">
+        <div class="wrap-common">
+          <form action="#" class="table-login" method="post">
+            <label for="inputEmail">Email</label>
+            <input id="inputEmail" type="email" />
+            <label for="inputPassword">Password</label>
+            <input id="inputPassword" type="password" />
+            <button class="btn-login" type="button">Login</button>
+          </form>
+          <a href="#" class="link-join"
+            >Don't have an ID?
+            <button class="text-green" type="button">Join us</button></a
+          >
+        </div>
+        <!--소셜 로그인-->
+        <div class="social-login">
+          <button class="kakao-btn" type="button">
+            <span class="btn-active">Login with kakao</span>
+          </button>
+          <button class="google-btn" type="button">
+            <span class="btn-active">Login with google</span>
+          </button>
+          <button class="github-btn" type="button">
+            <span class="btn-active">Login with github</span>
+          </button>
+        </div>
+      </section>
+      <!--게스트 로그인-->
+      <div class="wrap-guest">
+        <a href="#" class="guest-login semi-title">Guest Login</a>
+      </div>
+    </div>
+    <!--join-->
+    <div class="wrap-join disabled">
+      <h2 class="semi-title join-us">join us !</h2>
+      <section class="join big-round">
+        <form action="#" class="table-join" method="post">
+          <label for="inputJoinEmail">email</label
+          ><input id="inputJoinEmail" type="text" />
+          <label for="inputJoinName">name</label
+          ><input id="inputJoinName" type="text" />
+          <label for="inputJoinPassword">password</label
+          ><input id="inputJoinPassword" type="text" />
+          <label for="inputJoinPasswordAgain">password again</label
+          ><input id="inputJoinPasswordAgain" type="text" />
+          <label for="inputJoinPhoneNumber">phone number</label
+          ><input id="inputJoinPhoneNumber" type="text" />
+          <button class="btn-signUp green" type="button">Sign up</button>
+        </form>
+        <a href="#" class="link-login"
+          >Already have an account?
+          <button class="text-green" type="button">Click Here!</button></a
+        >
+      </section>
+    </div>
+  </body>
+</html>
