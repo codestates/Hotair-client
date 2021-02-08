@@ -1,41 +1,60 @@
-@import "color";
+@import 'color';
 
 $btn-radius: 3px;
 $big-radius: 6px;
 
 button[class^='btn'],
 button[class$='btn'],
-input{
+input {
   border-radius: $btn-radius;
 }
-.big-round{
+.big-round {
   border-radius: $big-radius;
 }
-.semi-title{
+.semi-title {
   font-size: 1.2em;
+  letter-spacing: 2px;
 }
 
-.disabled{
+.disabled {
   display: none;
 }
-.text-green{
+.text-green {
   background: $color-green;
   border-radius: $btn-radius;
   font-size: 16px;
   padding-bottom: 2px;
 }
-.round{
+.round {
   border-radius: 100%;
 }
-.middle{
+.middle {
   width: 42px;
   height: 42px;
 }
-.large{
+.large {
   width: 52px;
   height: 52px;
 }
 
-.img-container{
+.img-container {
   background-size: cover;
+}
+
+// !
+
+.small {
+  color: $font-lightColor;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.block {
+  display: block;
+}
+
+.line {
+  background: $bg-white;
+  margin: 30px 0;
+  height: 1px;
 }
