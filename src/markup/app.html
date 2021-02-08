@@ -1,205 +1,235 @@
-<!doctype html>
-<html lang='ko'>
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport'
-        content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Hotair</title>
-  <link rel='stylesheet' href='css/main.scss'>
-  <script>
-    const resize = (obj) => {
-      obj.style.height = '0';
-      obj.style.height = (obj.scrollHeight) + 'px';
-    };
-  </script>
-</head>
-<body>
-<h1 class='title disabled'>Hotair</h1>
-<header class='not-pc disabled'>
-  <a href='#'>menu-channel</a>
-  <a href='#'>menu-member</a>
-</header>
-<!--메인 페이지-->
-<div class='wrap-main main-active'>
-  <!--채널 리스트-->
-  <!-- side-disabled, side-active -->
-  <section class='channels-side'>
-    <img src='#' alt='logo' class='small-logo disabled'>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hotair</title>
+    <link rel="stylesheet" href="css/main.scss" />
+    <script>
+      const resize = (obj) => {
+        obj.style.height = '0';
+        obj.style.height = obj.scrollHeight + 'px';
+      };
+    </script>
+  </head>
+  <body>
+    <h1 class="title disabled">Hotair</h1>
+    <header class="not-pc disabled">
+      <a href="#">menu-channel</a>
+      <a href="#">menu-member</a>
+    </header>
+    <!--메인 페이지-->
+    <div class="wrap-main main-active">
+      <!--채널 리스트-->
+      <!-- side-disabled, side-active -->
+      <section class="channels-side">
+        <img src="#" alt="logo" class="small-logo disabled" />
 
-    <div class='wrap-btn'>
-      <h2 class='semi-title title-chan'>Channels</h2>
-      <button class='create-chan round'>+</button>
+        <div class="wrap-btn">
+          <h2 class="semi-title title-chan">Channels</h2>
+          <button class="create-chan round">+</button>
+        </div>
+
+        <button class="not-mobile btn-out disabled">X</button>
+        <ul class="list-chan">
+          <li class="item-chan">
+            <div class="img-container middle round soonduck"></div>
+            <span class="chan-name">Lobby</span>
+          </li>
+          <li class="item-chan">
+            <div class="img-container middle round otaku"></div>
+            <span class="chan-name">otaku</span>
+          </li>
+        </ul>
+      </section>
+      <!--채팅창-->
+      <section class="chatting">
+        <h2 class="semi-title now-chan">
+          Lobby
+          <img
+            src="./css/img/x-logo.png"
+            alt="x-logo"
+            class="menu-burger x-logo disabled"
+          />
+          <div class="menu-icon">
+            <img
+              src="./css/img/friends.png"
+              alt="menu-friends"
+              class="menu-friends"
+            />
+            <img
+              src="./css/img/menu-burger.png"
+              alt="menu-burger"
+              class="menu-burger"
+            />
+          </div>
+        </h2>
+        <div class="real-chatting">
+          <ul class="list-chat">
+            <li class="item-chat">
+              <div class="avatar-grid">
+                <div
+                  class="round large img-container soonduck avatar-chat"
+                ></div>
+              </div>
+              <div class="writer">
+                <span class="username-chat">soonduck</span>
+                <span class="date-chat">방금 전</span>
+              </div>
+              <pre class="text-chat">
+hi1231234124324 erwjprweir ewjrijerpw ejwiejfip qdjiqwddpj daidjadia wdjaidpawjd</pre
+              >
+              <div class="likes">
+                <i class="heart-active clicked">❤️</i>
+                <p class="count-likes">123</p>
+              </div>
+            </li>
+            <li class="item-chat">
+              <div class="avatar-grid">
+                <div
+                  class="round large img-container soonduck avatar-chat"
+                ></div>
+              </div>
+              <div class="writer">
+                <span class="username-chat">soonduck</span>
+                <span class="date-chat">방금 전</span>
+              </div>
+              <p class="text-chat">hi hi</p>
+              <div class="likes">
+                <i class="heart-active clicked">❤️</i>
+                <p class="count-likes">123</p>
+              </div>
+            </li>
+            <li class="item-chat">
+              <div class="avatar-grid">
+                <div
+                  class="round large img-container soonduck avatar-chat"
+                ></div>
+              </div>
+              <div class="writer">
+                <span class="username-chat">soonduck</span>
+                <span class="date-chat">방금 전</span>
+              </div>
+              <p class="text-chat">...</p>
+              <div class="likes">
+                <i class="heart-active clicked">❤️</i>
+                <p class="count-likes">123</p>
+              </div>
+            </li>
+          </ul>
+          <form action="#" class="input-chat" method="post">
+            <label for="inputChat"></label>
+            <textarea
+              placeholder="input message to lobby"
+              id="inputChat"
+              rows="1"
+              onkeydown="resize(this)"
+              onkeyup="resize(this)"
+            ></textarea>
+            <button class="send-messages" type="button">s</button>
+          </form>
+        </div>
+      </section>
+      <!--멤버 리스트-->
+      <section class="members-side side-active">
+        <h2 class="semi-title title-members">Members</h2>
+        <button class="not-mobile btn-out disabled">X</button>
+        <ul class="list-member">
+          <li class="item-member">
+            <div class="img-container round middle soonduck"></div>
+            <span class="member-name">soonduck</span>
+          </li>
+          <li class="item-member">
+            <div class="img-container round middle real-soonduck"></div>
+            <span class="member-name">real soonduck</span>
+          </li>
+        </ul>
+      </section>
     </div>
-
-    <button class='not-mobile btn-out disabled'>X</button>
-    <ul class='list-chan'>
-      <li class='item-chan'>
-        <div class='img-container middle round soonduck'></div>
-        <span class='chan-name'>Lobby</span>
-      </li>
-      <li class='item-chan'>
-        <div class='img-container middle round otaku'></div>
-        <span class='chan-name'>otaku</span>
-      </li>
-    </ul>
-  </section>
-  <!--채팅창-->
-  <section class='chatting'>
-    <h2 class='semi-title now-chan'>
-      Lobby
-      <img
-        src='./css/img/x-logo.png'
-        alt='x-logo'
-        class='menu-burger x-logo disabled'
-      />
-      <div class='menu-icon'>
-        <img
-          src='./css/img/friends.png'
-          alt='menu-friends'
-          class='menu-friends'
-        />
-        <img
-          src='./css/img/menu-burger.png'
-          alt='menu-burger'
-          class='menu-burger'
-        />
+    <!--유저 정보-->
+    <div class="wrap-userinfo disabled">
+      <div class="wrap-escape">
+        <button class="escape round">X</button>
+        <span class="small">ESC</span>
       </div>
-    </h2>
-    <div class='real-chatting'>
-      <ul class='list-chat'>
-        <li class='item-chat'>
-          <div class='avatar-grid'>
-            <div class='round large img-container soonduck avatar-chat'></div>
+      <h2 class="semi-title account-title">My account</h2>
+      <section class="main-info big-round">
+        <div class="user-avatar">
+          <img src="./css/img/anonymous-user.png" alt="username" />
+          <span class="username">soonduck🐤</span>
+        </div>
+        <div class="userinfo big-round">
+          <span class="block small">name</span>
+          <div class="wrap-modify">
+            <span class="inside-username">soonduck</span>
+            <button class="modify light">Modify</button>
           </div>
-          <div class='writer'>
-            <span class='username-chat'>soonduck</span>
-            <span class='date-chat'>방금 전</span>
+          <div class="popup-modify popup-active disabled">
+            <button class="btn-out">X</button>
+            <h3 class="small-head">change username</h3>
+            <p class="description-change">
+              input your new username and current password.
+            </p>
+            <form action="#" class="table-modify" method="post">
+              <label for="inputChangeName">name</label>
+              <input id="inputChangeName" type="text" />
+              <label for="inputCheckPasswordForName">current password</label>
+              <input id="inputCheckPasswordForName" type="text" />
+              <button class="btn-cancel">cancel</button>
+              <button class="btn-done">done</button>
+            </form>
           </div>
-          <pre
-            class='text-chat'>hi1231234124324 erwjprweir ewjrijerpw ejwiejfip qdjiqwddpj daidjadia wdjaidpawjd</pre>
-          <div class='likes'>
-            <i class='heart-active clicked'>❤️</i>
-            <p class='count-likes'>123</p>
+
+          <span class="block small">email</span>
+          <div class="wrap-modify">
+            <span class="block inside-email">ckexp05@gmail.com</span>
+            <button class="modify light">Modify</button>
           </div>
-        </li>
-        <li class='item-chat'>
-          <div class='avatar-grid'>
-            <div class='round large img-container soonduck avatar-chat'></div>
+          <div class="popup-modify popup-active disabled">
+            <button class="btn-out">X</button>
+            <h3 class="small-head">change email</h3>
+            <p class="description-change">
+              input your new email and current password.
+            </p>
+            <form action="#" class="table-modify" method="post">
+              <label for="inputChangeEmail">email</label>
+              <input id="inputChangeEmail" type="text" />
+              <label for="inputCheckPasswordForEmail">current password</label>
+              <input id="inputCheckPasswordForEmail" type="text" />
+              <button class="btn-cancel">cancel</button>
+              <button class="btn-done">done</button>
+            </form>
           </div>
-          <div class='writer'>
-            <span class='username-chat'>soonduck</span>
-            <span class='date-chat'>방금 전</span>
+
+          <span class="block small">phone number</span>
+          <div class="wrap-modify">
+            <span class="block inside-phoneNumber">010-1234-5678</span>
+            <button class="modify light">Add</button>
           </div>
-          <p class='text-chat'>hi hi</p>
-          <div class='likes'>
-            <i class='heart-active clicked'>❤️</i>
-            <p class='count-likes'>123</p>
+          <div class="popup-modify popup-active disabled">
+            <button class="btn-out">X</button>
+            <h3 class="small-head">add phone number</h3>
+            <p class="description-change">add your phone number.</p>
+            <form action="#" class="table-modify" method="post">
+              <label for="inputChangePhoneNumber">phone number</label>
+              <input id="inputChangePhoneNumber" type="text" />
+              <button class="btn-cancel">cancel</button>
+              <button class="btn-done">done</button>
+            </form>
           </div>
-        </li>
-        <li class='item-chat'>
-          <div class='avatar-grid'>
-            <div class='round large img-container soonduck avatar-chat'></div>
-          </div>
-          <div class='writer'>
-            <span class='username-chat'>soonduck</span>
-            <span class='date-chat'>방금 전</span>
-          </div>
-          <p class='text-chat'>...</p>
-          <div class='likes'>
-            <i class='heart-active clicked'>❤️</i>
-            <p class='count-likes'>123</p>
-          </div>
-        </li>
-      </ul>
-      <form action='#' class='input-chat' method='post'>
-        <label for='inputChat'></label>
-        <textarea placeholder='input message to lobby' id='inputChat' rows='1' onkeydown='resize(this)'
-                  onkeyup='resize(this)'></textarea>
-        <button class='send-messages' type='button'>s</button>
-      </form>
+        </div>
+      </section>
+      <div class="line"></div>
+      <section class="auth">
+        <h3 class="small-head">Password and authentication</h3>
+        <button class="modify dark">Change password</button>
+        <h3 class="small-head">Disconnect Hotair</h3>
+        <button class="modify dark">Logout</button>
+      </section>
     </div>
-  </section>
-  <!--멤버 리스트-->
-  <section class='members-side side-active'>
-    <h2 class='semi-title title-members'>Members</h2>
-    <button class='not-mobile btn-out disabled'>X</button>
-    <ul class='list-member'>
-      <li class='item-member'>
-        <div class='img-container round middle soonduck'></div>
-        <span class='member-name'>soonduck</span>
-      </li>
-      <li class='item-member'>
-        <div class='img-container round middle real-soonduck'></div>
-        <span class='member-name'>real soonduck</span>
-      </li>
-    </ul>
-  </section>
-</div>
-<!--유저 정보-->
-<div class='wrap-userinfo disabled'>
-  <h2 class='semi-title'>My account</h2>
-  <section class='main-info'>
-    <img src='#' alt='username'>
-    <span class='username'>soonduck</span>
-    <div class='userinfo'>
-
-      <span class='block small'>name</span>
-      <span class='block inside-username'>soonduck</span>
-      <button class='modify light'>Modify</button>
-      <div class='popup-modify popup-active'>
-        <button class='btn-out'>X</button>
-        <h3 class='small-head'>change username</h3>
-        <p class='description-change'>input your new username and current password.</p>
-        <form action='#' class='table-modify' method='post'>
-          <label for='inputChangeName'>name</label>
-          <input id='inputChangeName' type='text'>
-          <label for='inputCheckPasswordForName'>current password</label>
-          <input id='inputCheckPasswordForName' type='text'>
-          <button class='btn-cancel'>cancel</button>
-          <button class='btn-done'>done</button>
-        </form>
-      </div>
-
-      <span class='block small'>email</span>
-      <span class='block inside-email'>ckexp05@gmail.com</span>
-      <button class='modify light'>Modify</button>
-      <div class='popup-modify popup-active'>
-        <button class='btn-out'>X</button>
-        <h3 class='small-head'>change email</h3>
-        <p class='description-change'>input your new email and current password.</p>
-        <form action='#' class='table-modify' method='post'>
-          <label for='inputChangeEmail'>email</label>
-          <input id='inputChangeEmail' type='text'>
-          <label for='inputCheckPasswordForEmail'>current password</label>
-          <input id='inputCheckPasswordForEmail' type='text'>
-          <button class='btn-cancel'>cancel</button>
-          <button class='btn-done'>done</button>
-        </form>
-      </div>
-
-      <span class='block small'>phone number</span>
-      <span class='block inside-phoneNumber'>not ....</span>
-      <button class='modify light'>Add</button>
-      <div class='popup-modify popup-active'>
-        <button class='btn-out'>X</button>
-        <h3 class='small-head'>add phone number</h3>
-        <p class='description-change'>add your phone number.</p>
-        <form action='#' class='table-modify' method='post'>
-          <label for='inputChangePhoneNumber'>phone number</label>
-          <input id='inputChangePhoneNumber' type='text'>
-          <button class='btn-cancel'>cancel</button>
-          <button class='btn-done'>done</button>
-        </form>
-      </div>
-    </div>
-  </section>
-  <section class='auth'>
-    <h3 class='small-head'>Password and authentication</h3>
-    <button class='modify dark'>Change password</button>
-    <h3 class='small-head'>Disconnect Hotair</h3>
-    <button class='modify dark'>Logout</button>
-  </section>
-</div>
-</body>
+  </body>
 </html>
