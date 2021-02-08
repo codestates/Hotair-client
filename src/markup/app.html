@@ -9,10 +9,9 @@
   <link rel='stylesheet' href='css/main.scss'>
   <script>
     const resize = (obj) => {
-      obj.style.height = "0";
-      obj.style.height = (obj.scrollHeight)+"px";
-    }
-
+      obj.style.height = '0';
+      obj.style.height = (obj.scrollHeight) + 'px';
+    };
   </script>
 </head>
 <body>
@@ -24,7 +23,8 @@
 <!--메인 페이지-->
 <div class='wrap-main main-active'>
   <!--채널 리스트-->
-  <section class='channels side-active'>
+  <!-- side-disabled, side-active -->
+  <section class='channels-side'>
     <img src='#' alt='logo' class='small-logo disabled'>
 
     <div class='wrap-btn'>
@@ -46,7 +46,26 @@
   </section>
   <!--채팅창-->
   <section class='chatting'>
-    <h2 class='semi-title now-chan'>Lobby</h2>
+    <h2 class='semi-title now-chan'>
+      Lobby
+      <img
+        src='./css/img/x-logo.png'
+        alt='x-logo'
+        class='menu-burger x-logo disabled'
+      />
+      <div class='menu-icon'>
+        <img
+          src='./css/img/friends.png'
+          alt='menu-friends'
+          class='menu-friends'
+        />
+        <img
+          src='./css/img/menu-burger.png'
+          alt='menu-burger'
+          class='menu-burger'
+        />
+      </div>
+    </h2>
     <div class='real-chatting'>
       <ul class='list-chat'>
         <li class='item-chat'>
@@ -57,7 +76,8 @@
             <span class='username-chat'>soonduck</span>
             <span class='date-chat'>방금 전</span>
           </div>
-          <pre class='text-chat'>hi1231234124324 erwjprweir ewjrijerpw ejwiejfip qdjiqwddpj daidjadia wdjaidpawjd</pre>
+          <pre
+            class='text-chat'>hi1231234124324 erwjprweir ewjrijerpw ejwiejfip qdjiqwddpj daidjadia wdjaidpawjd</pre>
           <div class='likes'>
             <i class='heart-active clicked'>❤️</i>
             <p class='count-likes'>123</p>
@@ -94,13 +114,14 @@
       </ul>
       <form action='#' class='input-chat' method='post'>
         <label for='inputChat'></label>
-        <textarea id='inputChat' rows='1' onkeydown='resize(this)' onkeyup='resize(this)'></textarea>
+        <textarea placeholder='input message to lobby' id='inputChat' rows='1' onkeydown='resize(this)'
+                  onkeyup='resize(this)'></textarea>
         <button class='send-messages' type='button'>s</button>
       </form>
     </div>
   </section>
   <!--멤버 리스트-->
-  <section class='members side-active'>
+  <section class='members-side side-active'>
     <h2 class='semi-title title-members'>Members</h2>
     <button class='not-mobile btn-out disabled'>X</button>
     <ul class='list-member'>

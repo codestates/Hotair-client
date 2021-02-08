@@ -4,6 +4,7 @@ $btn-radius: 3px;
 $big-radius: 6px;
 
 button[class^='btn'],
+button[class$='btn'],
 input{
   border-radius: $btn-radius;
 }
