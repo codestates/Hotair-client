@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { useHistory } from 'react-router-dom';
+
 import TopLogo from '../components/TopLogo';
-// import SignupForm from '../components/SignupForm';
 
 const axios = require('axios');
 
@@ -15,23 +16,31 @@ export default function Login() {
   const [phone, setPhone] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const history = useHistory();
+
+  // ! hiring assessment 에서 봤던 this.props.history.push("/") 를 함수형 컴포넌트에서 활용하기
+
   const handleSignup = () => {
-    axios
-      .post(
-        'http://localhost:4000/users/signup',
-        {
-          username,
-          email,
-          password,
-          phone,
-        },
-        {
-          'Content-Type': 'application/json',
-        },
-      )
-      .then((res) => JSON.parse(res))
-      .then(console.log);
-    // .catch((errors) => console.log('이게 에러라네', errors));
+    if (password !== passwordCheck) {
+      return setErrorMessage('비밀번호를 동일하게 작성하지 않았습니다.');
+    } else {
+      axios
+        .post(
+          'http://localhost:4000/users/signup',
+          {
+            username,
+            email,
+            password,
+            phone,
+          },
+          {
+            'Content-Type': 'application/json',
+          },
+        )
+        .then((res) => setErrorMessage(res.data.message))
+        .then(() => history.push('/users/login'))
+        .catch((error) => setErrorMessage(error.response.data.message));
+    }
   };
 
   const onChangeUsername = (e) => {
@@ -83,14 +92,14 @@ export default function Login() {
             <label htmlFor="inputJoinPassword">password</label>
             <input
               id="inputJoinPassword"
-              type="text"
+              type="password"
               defaultValue={password}
               onChange={onChangePassword}
             />
             <label htmlFor="inputJoinPasswordAgain">password again</label>
             <input
               id="inputJoinPasswordAgain"
-              type="text"
+              type="password"
               defaultValue={passwordCheck}
               onChange={onChangePasswordCheck}
             />
@@ -103,16 +112,11 @@ export default function Login() {
             />
             <button
               className="btn-signUp green"
-              type="button"
+              type="reset"
               onClick={handleSignup}
             >
               Sign up
             </button>
-            {errorMessage ? (
-              <div className="alert-box">{setErrorMessage}</div>
-            ) : (
-              <div className="alert-box"></div>
-            )}
           </form>
           <Link to="/" className="link-login">
             Already have an account?
@@ -120,6 +124,11 @@ export default function Login() {
               Click Here!
             </button>
           </Link>
+          {errorMessage ? (
+            <span className="error-msg">{errorMessage}</span>
+          ) : (
+            <span className="error-msg"></span>
+          )}
         </section>
       </div>
     </>
