@@ -13,6 +13,9 @@ html {
     height: 300px;
   }
   // pc - 로그인
+  .mobile {
+    display: none;
+  }
   .logo {
     position: fixed;
     top: 20px;
@@ -94,6 +97,9 @@ html {
     right: 4%;
     height: 35%;
     max-width: 200px;
+  }
+  .pc {
+    display: none;
   }
   .logo {
     position: relative;
