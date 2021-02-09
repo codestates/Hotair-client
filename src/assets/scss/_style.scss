@@ -111,10 +111,18 @@ body {
 }
 
 .link-login,
-.link-join {
+.link-join,
+.error-msg {
   display: block;
   text-align: center;
   margin-bottom: 5px;
+}
+.error-msg {
+  padding-top: 10px;
+  font-weight: 600;
+  &:hover {
+    color: $btn-hover;
+  }
 }
 
 // 메인페이지
