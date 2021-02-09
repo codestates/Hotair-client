@@ -6,21 +6,14 @@ import { ReactComponent as AirBallon } from '../assets/img/bg-balloon.svg';
 export default function Login() {
   return (
     <>
-      <h1 className="logo pc disabled">
-        {/* <img className="img-logo" src="../assets/img/logo.svg" alt="Hotair" /> */}
-        {/* <Logo className="img-logo" alt="Hotair" /> */}
+      <h1 className="logo pc">
         <img className="img-logo" src={Logo} alt="Hotair" />
       </h1>
-      {/* <img
-        src="../assets/img/bg-ballon.svg"
-        alt="hot air balloon"
-        className="bg-airBalloon"
-      /> */}
+
       <AirBallon className="bg-airBalloon" alt="hot air ballon" />
       <div className="wrap-login">
         <h1 className="logo mobile">
           <img className="img-logo" src={Logo} alt="Hotair" />
-          {/* <Logo className="img-logo" alt="Hotair" /> */}
         </h1>
         <h2 className="welcome semi-title">Welcome!</h2>
 
@@ -36,7 +29,7 @@ export default function Login() {
               </button>
             </form>
             <a href="#" className="link-join">
-              Do not have an ID?
+              Don&apos;t have an ID?
               <button className="text-green" type="button">
                 Join us
               </button>
