@@ -1,59 +1,24 @@
 import React from 'react';
+import CommonLogin from '../components/CommonLogin';
+import SocialLogin from '../components/SocialLogin';
+import GuestLogin from '../components/GuestLogin';
+import TopLogo from '../components/TopLogo';
 import Logo from '../assets/img/logo.svg';
-
-import { ReactComponent as AirBallon } from '../assets/img/bg-balloon.svg';
 
 export default function Login() {
   return (
     <>
-      <h1 className="logo pc">
-        <img className="img-logo" src={Logo} alt="Hotair" />
-      </h1>
-
-      <AirBallon className="bg-airBalloon" alt="hot air ballon" />
+      <TopLogo />
       <div className="wrap-login">
         <h1 className="logo mobile">
           <img className="img-logo" src={Logo} alt="Hotair" />
         </h1>
         <h2 className="welcome semi-title">Welcome!</h2>
-
         <section className="login big-round">
-          <div className="wrap-common">
-            <form action="#" className="table-login" method="post">
-              <label htmlFor="inputEmail">Email</label>
-              <input id="inputEmail" type="email" />
-              <label htmlFor="inputPassword">Password</label>
-              <input id="inputPassword" type="password" />
-              <button className="btn-login" type="button">
-                Login
-              </button>
-            </form>
-            <a href="#" className="link-join">
-              Don&apos;t have an ID?
-              <button className="text-green" type="button">
-                Join us
-              </button>
-            </a>
-          </div>
-
-          <div className="social-login">
-            <button className="kakao-btn" type="button">
-              <span className="btn-active">Login with kakao</span>
-            </button>
-            <button className="google-btn" type="button">
-              <span className="btn-active">Login with google</span>
-            </button>
-            <button className="github-btn" type="button">
-              <span className="btn-active">Login with github</span>
-            </button>
-          </div>
+          <CommonLogin />
+          <SocialLogin />
         </section>
-
-        <div className="wrap-guest">
-          <a href="#" className="guest-login semi-title">
-            Guest Login
-          </a>
-        </div>
+        <GuestLogin />
       </div>
     </>
   );
