@@ -72,18 +72,18 @@ html {
       margin: 0;
     }
   }
-  // pc - app
-  .members-side,
-  .channels-side {
-    width: 32%;
-    max-width: 300px;
-  }
-  .now-chan {
-    height: 72px;
-  }
-  .menu-icon {
-    display: none;
-  }
+  // ! pc - app : 일단 이 부분도 주석처리
+  // .members-side,
+  // .channels-side {
+  //   width: 32%;
+  //   max-width: 300px;
+  // }
+  // .now-chan {
+  //   height: 72px;
+  // }
+  // .menu-icon {
+  //   display: none;
+  // }
 }
 
 // mobile
@@ -167,90 +167,90 @@ html {
   .link-join {
     margin-bottom: 25px;
   }
-  // mobile menu icon
-  .menu-icon {
-    position: absolute;
-    right: 5%;
-    top: 1rem;
-  }
-  .menu-burger {
-    display: inline;
-    width: 24px;
-    position: sticky;
-    cursor: pointer;
-  }
-  .menu-friends {
-    display: inline;
-    width: 26px;
-    position: sticky;
-    cursor: pointer;
-    margin-right: 10px;
-  }
+  // ! mobile menu icon
+  // .menu-icon {
+  //   position: absolute;
+  //   right: 5%;
+  //   top: 1rem;
+  // }
+  // .menu-burger {
+  //   display: inline;
+  //   width: 24px;
+  //   position: sticky;
+  //   cursor: pointer;
+  // }
+  // .menu-friends {
+  //   display: inline;
+  //   width: 26px;
+  //   position: sticky;
+  //   cursor: pointer;
+  //   margin-right: 10px;
+  // }
 
-  // mobile chat
-  .now-chan {
-    height: 3.6rem;
-  }
-  // mobile side
-  .chan-name,
-  .member-name {
-    font-weight: 300;
-  }
-  // mobile menu & animation
-  .wrap-main {
-    section[class$='-side']:not(.side-active) {
-      display: none;
-    }
-    .side-disabled {
-      position: absolute;
-      background: $dark-level4-overlay;
-      width: 400px;
-      height: 100%;
-      &.members-side {
-        animation: menu-on-memb 0.4s reverse both;
-        right: 0;
-      }
-      &.channels-side {
-        animation: menu-on-chan 0.4s reverse both;
-        left: 0;
-      }
-    }
-    .side-active {
-      position: absolute;
-      height: 100%;
-      width: 380px;
-      background: $dark-level4-overlay;
-      &.members-side {
-        right: 0;
-        animation: menu-on-memb 0.4s;
-      }
-      &.channels-side {
-        animation: menu-on-chan 0.4s;
-        left: 0;
-      }
-    }
-  }
-  .text-chat,
-  .date-chat {
-    font-weight: 300;
-  }
-  .text-chat {
-    margin-top: 10px;
-  }
-  @keyframes menu-on-chan {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(0%);
-    }
-  }
-  @keyframes menu-on-memb {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0%);
-    }
-  }
+  // ! mobile chat
+  // .now-chan {
+  //   height: 3.6rem;
+  // }
+  // ! mobile side
+  // .chan-name,
+  // .member-name {
+  //   font-weight: 300;
+  // }
+  // ! mobile menu & animation
+  // .wrap-main {
+  //   section[class$='-side']:not(.side-active) {
+  //     display: none;
+  //   }
+  //   .side-disabled {
+  //     position: absolute;
+  //     background: $dark-level4-overlay;
+  //     width: 400px;
+  //     height: 100%;
+  //     &.members-side {
+  //       animation: menu-on-memb 0.4s reverse both;
+  //       right: 0;
+  //     }
+  //     &.channels-side {
+  //       animation: menu-on-chan 0.4s reverse both;
+  //       left: 0;
+  //     }
+  //   }
+  //   .side-active {
+  //     position: absolute;
+  //     height: 100%;
+  //     width: 380px;
+  //     background: $dark-level4-overlay;
+  //     &.members-side {
+  //       right: 0;
+  //       animation: menu-on-memb 0.4s;
+  //     }
+  //     &.channels-side {
+  //       animation: menu-on-chan 0.4s;
+  //       left: 0;
+  //     }
+  //   }
+  // }
+  // .text-chat,
+  // .date-chat {
+  //   font-weight: 300;
+  // }
+  // .text-chat {
+  //   margin-top: 10px;
+  // }
+  // @keyframes menu-on-chan {
+  //   from {
+  //     transform: translateX(-100%);
+  //   }
+  //   to {
+  //     transform: translateX(0%);
+  //   }
+  // }
+  // @keyframes menu-on-memb {
+  //   from {
+  //     transform: translateX(100%);
+  //   }
+  //   to {
+  //     transform: translateX(0%);
+  //   }
+  // }
 }

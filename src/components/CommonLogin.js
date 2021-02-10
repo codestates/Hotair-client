@@ -22,6 +22,8 @@ export default function CommonLogin(props) {
       )
       .then((res) => props.loginHandler(res.data.token))
       .catch((err) => console.log(err.response));
+
+    props.setEmailParam(email);
   };
 
   const onChangeEmail = (e) => {
@@ -57,7 +59,7 @@ export default function CommonLogin(props) {
           Login
         </button>
       </form>
-      <Link to="/users/signup" className="link-join">
+      <Link to="/signup" className="link-join">
         Don&apos;t have an ID?
         <button className="text-green" type="button">
           Join us
