@@ -7,12 +7,17 @@ import Logo from '../assets/img/logo.svg';
 
 import { useHistory } from 'react-router-dom';
 
-export default function Login() {
+export default function Login(props) {
   const [isLogin, setIsLogin] = useState(false);
   const [accessToken, setAccessToken] = useState('');
   const [emailParam, setEmailParam] = useState('');
 
   const history = useHistory();
+
+  console.log(
+    'Login.js 에서 받은 props, CommonLogin 으로 내려야 한다 ',
+    props.setupSocket,
+  );
 
   const loginHandler = (data) => {
     setIsLogin(true);
@@ -40,6 +45,7 @@ export default function Login() {
           <CommonLogin
             loginHandler={loginHandler}
             setEmailParam={setEmailParam}
+            setupSocket={props.setupSocket}
           />
           <SocialLogin />
         </section>

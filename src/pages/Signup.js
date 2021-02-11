@@ -38,7 +38,7 @@ export default function Login() {
           },
         )
         .then((res) => setErrorMessage(res.data.message))
-        .then(() => history.push('/users/login'))
+        .then(() => history.push('/'))
         .catch((error) => setErrorMessage(error.response.data.message));
     }
   };

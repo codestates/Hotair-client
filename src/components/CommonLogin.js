@@ -9,6 +9,7 @@ export default function CommonLogin(props) {
 
   const handleSignin = () => {
     // console.log(props.loginHandler);
+    console.log('CommonLogin 에서의 props', props.setupSocket);
     axios
       .post(
         'http://localhost:4000/users/login',
@@ -20,7 +21,11 @@ export default function CommonLogin(props) {
           'Content-Type': 'application/json',
         },
       )
-      .then((res) => props.loginHandler(res.data.token))
+      .then((res) => {
+        props.loginHandler(res.data.token);
+        localStorage.setItem('CC_Token', res.data.token);
+        props.setupSocket();
+      })
       .catch((err) => console.log(err.response));
 
     props.setEmailParam(email);
