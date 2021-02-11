@@ -1,0 +1,89 @@
+.joinOuterContainer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  height: 100vh;
+  align-items: center;
+  background-color: #364f6b;
+}
+
+.joinInnerContainer {
+  width: 20%;
+}
+
+.joinInput {
+  border-radius: 0;
+  padding: 15px 20px;
+  width: 100%;
+  color: black;
+}
+
+.heading {
+  color: white;
+  font-size: 2.5em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+}
+
+.button {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #2979ff;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  width: 100%;
+}
+.rooms {
+  border: 2px solid red;
+  width: 100%;
+  height: 500px;
+}
+.button:hover {
+  background: #fc5185;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+.channels {
+  margin-bottom: 20px;
+}
+
+.chatrooms {
+  margin-top: 1rem;
+  min-width: 350px;
+  max-width: 100px;
+}
+
+.chatroom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.join {
+  background: #3fc1c9;
+  padding: 0.25rem 1rem;
+  border-radius: 2px;
+}
+.join:hover {
+  background: #192c40;
+}
+/* 
+@media (min-width: 320px) and (max-width: 480px) {
+  .joinOuterContainer {
+    height: 100%;
+  }
+
+  .joinInnerContainer {
+    width: 90%;
+  }
+} */
+
+button:focus {
+  outline: 0;
+}
