@@ -4,12 +4,26 @@ import SocialLogin from '../components/SocialLogin';
 import GuestLogin from '../components/GuestLogin';
 import TopLogo from '../components/TopLogo';
 import Logo from '../assets/img/logo.svg';
-
+import axios from 'axios';
 import { useHistory, withRouter } from 'react-router-dom';
-
 function Login(props) {
   const history = useHistory();
-
+  useEffect(async () => {
+    const getAccessToken = async (authorizationCode) => {
+      let tokenData = (
+        await axios.post('http://localhost:4000/github/login/callback', {
+          authorizationCode,
+        })
+      ).data.token;
+      localStorage.setItem('CC_Token', tokenData);
+      history.push('/channels');
+    };
+    const url = new URL(window.location.href);
+    const authorizationCode = url.searchParams.get('code');
+    if (authorizationCode) {
+      await getAccessToken(authorizationCode);
+    }
+  }, []);
   return (
     <>
       <TopLogo />

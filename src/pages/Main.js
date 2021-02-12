@@ -21,7 +21,7 @@ function Main({ socket, match }) {
     const payload = JSON.parse(atob(token.split('.')[1]));
 
     axios
-      .get(`http://localhost:4000/users/${payload.uuid}`, {
+      .get(`http://localhost:4000/users/myinfo/${payload.uuid}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
