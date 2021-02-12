@@ -15,35 +15,25 @@ export default function UserInfo({ info, handleIsInfo }) {
     disabled: false,
   });
 
-  useEffect(() => {
-    const token = localStorage.getItem('CC_Token');
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    axios
-      .get(`http://localhost:4000/users/${payload.uuid}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((data) => {
-        setMyInfo(data.data);
-        console.log(myInfo);
-      });
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('CC_Token');
+  //   const payload = JSON.parse(atob(token.split('.')[1]));
+  //   axios
+  //     .get(`http://localhost:4000/users/${payload.uuid}`, {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     })
+  //     .then((data) => {
+  //       setMyInfo(data.data);
+  //       console.log(myInfo);
+  //     });
+  // }, []);
 
   const toggleModify = () => {
     setModify({ disabled: !modify.disabled });
   };
   const sendChangedInfo = (prop, value, password) => {
-    // axios.post(
-    //   'http://localhost:4000/users/login',
-    //   {
-    //     email: myInfo.email,
-    //     password,
-    //   },
-    //   {
-    //     'Content-Type': 'application/json',
-    //   },
-    // );
     axios
       .post(`http://localhost:4000/users/updateUserInfo/${info.uuid}`, {
         headers: {
@@ -56,17 +46,18 @@ export default function UserInfo({ info, handleIsInfo }) {
       .then((data) => {});
   };
   const disableAccount = () => {
-    console.log(1234);
     axios
-      .delete(`http://localhost:4000/users/delete/${info.uuid}`, {
+      .delete('http://localhost:4000/users/delete', {
         headers: {
           Authorization: 'Bearer ' + token,
+        },
+        data: {
+          uuid: info.uuid,
         },
       })
       .then(() => {
         history.push('/login');
       });
-    console.log(3232);
   };
 
   console.log(myInfo);
@@ -80,12 +71,12 @@ export default function UserInfo({ info, handleIsInfo }) {
       <section className="main-info big-round">
         <div className="user-avatar">
           <img src={Avatar} alt="username" />
-          <span className="username">{myInfo.username}</span>
+          <span className="username">{info.username}</span>
         </div>
         <div className="userinfo big-round">
           <span className="block small">name</span>
           <div className="wrap-modify">
-            <span className="inside-username">{myInfo.username}</span>
+            <span className="inside-username">{info.username}</span>
             <button
               className="modify light"
               disabled={modify.disabled}
@@ -105,14 +96,14 @@ export default function UserInfo({ info, handleIsInfo }) {
 
           <span className="block small">email</span>
           <div className="wrap-modify">
-            <span className="block inside-email">{myInfo.email}</span>
+            <span className="block inside-email">{info.email}</span>
             <button className="modify light">Modify</button>
           </div>
           <ModifyEmail />
 
           <span className="block small">phone number</span>
           <div className="wrap-modify">
-            <span className="block inside-phoneNumber">{myInfo.phone}</span>
+            <span className="block inside-phoneNumber">{info.phone}</span>
             <button className="modify light">Add</button>
           </div>
           <ModifyPhone />

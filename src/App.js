@@ -3,12 +3,10 @@ import Login from './pages/Login';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import io from 'socket.io-client';
 import IndexPage from './pages/IndexPage';
-import DashboardPage from './1_jh/Pages/DashboardPage';
 import Main from './pages/Main';
 import Signup from './pages/Signup';
 import UserInfo from './pages/UserInfo';
 import Channels from './pages/Channels';
-import ChatRoomPage from './pages/ChatRoomPage';
 
 function App() {
   const [socket, setSocket] = useState(null);
