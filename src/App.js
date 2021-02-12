@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import Login from './pages/Login';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import io from 'socket.io-client';
+import IndexPage from './pages/IndexPage';
+import DashboardPage from './1_jh/Pages/DashboardPage';
+import Main from './pages/Main';
 import Signup from './pages/Signup';
 import UserInfo from './pages/UserInfo';
-import Main from './pages/Main';
+import Channels from './pages/Channels';
 import ChatRoomPage from './pages/ChatRoomPage';
-import io from 'socket.io-client';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-const App = () => {
+function App() {
   const [socket, setSocket] = useState(null);
 
   const setupSocket = () => {
@@ -20,55 +22,47 @@ const App = () => {
           token: token,
         },
       });
-      console.log('Created New Socket >>>>>', newSocket);
       newSocket.on('disconnect', () => {
         setSocket(null);
-        // setTimeout(setupSocket, 3000);
-        console.log('Socket Disconnected!');
+        setTimeout(setupSocket, 3000);
+        console.log('disconnected');
       });
-
       newSocket.on('connect', () => {
-        console.log('Socket Connected!', socket);
+        console.log('connected');
       });
       setSocket(newSocket);
     }
   };
-
   useEffect(() => {
     setupSocket();
   }, []);
+
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Switch>
-          {/* <Route path="/" component={Login} exact /> */}
+          <Route path="/" component={IndexPage} exact />
           <Route
-            path="/"
+            path="/login"
             render={() => <Login setupSocket={setupSocket} />}
             exact
           />
           <Route path="/signup" component={Signup} />
-          <Route path="/userinfo" component={UserInfo} />
-          {/* <Route path="/main/:userid" component={Main} /> */}
-          <Route path="/main/:userid" render={() => <Main socket={socket} />} />
-          <Route path="/main" component={Main} />
-          {/* <Route path="/" render={() => <Redirect to="/users/login" />} /> */}
+          <Route path="/channels" component={Channels} />
           <Route
-            path="/chatroom/:channelName"
-            render={() => <ChatRoomPage socket={socket} />}
+            path="/main/:channelName"
+            render={() => <Main socket={socket} />}
+            exact
           />
-          <Route path="/chatroom" component={ChatRoomPage} />
+          <Route
+            path="/userinfo"
+            render={() => <UserInfo socket={socket} />}
+            exact
+          />
         </Switch>
-      </Router>
+      </BrowserRouter>
     </>
   );
-};
-
-const connectionOptions = {
-  'force new connection': true,
-  reconnectionAttempts: 'Infinity',
-  timeout: 10000,
-  transports: ['websocket'],
-};
+}
 
 export default App;

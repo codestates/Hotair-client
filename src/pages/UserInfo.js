@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Avatar from '../assets/img/anonymous-user.png';
 
-export default function UserInfo() {
+import ModifyName from '../components/ModifyName';
+import ModifyEmail from '../components/ModifyEmail';
+import ModifyPhone from '../components/ModifyPhone';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
+export default function UserInfo({ handleIsInfo }) {
+  const token = localStorage.getItem('CC_Token');
+  const [myInfo, setMyInfo] = React.useState({});
+  const history = useHistory();
+
+  useEffect(() => {
+    const token = localStorage.getItem('CC_Token');
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    axios
+      .get(`http://localhost:4000/users/${payload.uuid}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((data) => {
+        setMyInfo(data.data);
+      });
+  }, []);
+
+  console.log(myInfo);
   return (
     <div className="wrap-userinfo">
-      <div className="wrap-escape">
+      <div className="wrap-escape" onClick={handleIsInfo}>
         <button className="escape round">X</button>
         <span className="small">ESC</span>
       </div>
@@ -12,74 +37,32 @@ export default function UserInfo() {
       <section className="main-info big-round">
         <div className="user-avatar">
           <img src={Avatar} alt="username" />
-          <span className="username">soonduck🐤</span>
+          <span className="username">{myInfo.username}</span>
         </div>
         <div className="userinfo big-round">
           <span className="block small">name</span>
           <div className="wrap-modify">
-            <span className="inside-username">soonduck</span>
+            <span className="inside-username">{myInfo.username}</span>
             <button className="modify light">Modify</button>
           </div>
-          <div className="popup-modify popup-active disabled">
-            <button className="btn-out">X</button>
-            <h3 className="small-head">change username</h3>
-            <p className="description-change">
-              input your new username and current password.
-            </p>
-            <form action="#" className="table-modify" method="post">
-              <label htmlFor="inputChangeName">name</label>
-              <input id="inputChangeName" type="text" />
-              <label htmlFor="inputCheckPasswordForName">
-                current password
-              </label>
-              <input id="inputCheckPasswordForName" type="text" />
-              <button className="btn-cancel">cancel</button>
-              <button className="btn-done">done</button>
-            </form>
-          </div>
+          <ModifyName />
 
           <span className="block small">email</span>
           <div className="wrap-modify">
-            <span className="block inside-email">ckexp05@gmail.com</span>
+            <span className="block inside-email">{myInfo.email}</span>
             <button className="modify light">Modify</button>
           </div>
-          <div className="popup-modify popup-active disabled">
-            <button className="btn-out">X</button>
-            <h3 className="small-head">change email</h3>
-            <p className="description-change">
-              input your new email and current password.
-            </p>
-            <form action="#" className="table-modify" method="post">
-              <label htmlFor="inputChangeEmail">email</label>
-              <input id="inputChangeEmail" type="text" />
-              <label htmlFor="inputCheckPasswordForEmail">
-                current password
-              </label>
-              <input id="inputCheckPasswordForEmail" type="text" />
-              <button className="btn-cancel">cancel</button>
-              <button className="btn-done">done</button>
-            </form>
-          </div>
+          <ModifyEmail />
 
           <span className="block small">phone number</span>
           <div className="wrap-modify">
-            <span className="block inside-phoneNumber">010-1234-5678</span>
+            <span className="block inside-phoneNumber">{myInfo.phone}</span>
             <button className="modify light">Add</button>
           </div>
-          <div className="popup-modify popup-active disabled">
-            <button className="btn-out">X</button>
-            <h3 className="small-head">add phone number</h3>
-            <p className="description-change">add your phone number.</p>
-            <form action="#" className="table-modify" method="post">
-              <label htmlFor="inputChangePhoneNumber">phone number</label>
-              <input id="inputChangePhoneNumber" type="text" />
-              <button className="btn-cancel">cancel</button>
-              <button className="btn-done">done</button>
-            </form>
-          </div>
+          <ModifyPhone />
         </div>
       </section>
-      <div className="line"></div>
+      <div className="line" />
       <section className="auth">
         <h3 className="small-head">Password and authentication</h3>
         <button className="modify dark">Change password</button>
