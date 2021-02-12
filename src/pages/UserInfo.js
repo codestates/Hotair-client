@@ -7,10 +7,13 @@ import ModifyPhone from '../components/ModifyPhone';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
-export default function UserInfo({ handleIsInfo }) {
+export default function UserInfo({ info, handleIsInfo }) {
   const token = localStorage.getItem('CC_Token');
   const [myInfo, setMyInfo] = React.useState({});
   const history = useHistory();
+  const [modify, setModify] = React.useState({
+    disabled: false,
+  });
 
   useEffect(() => {
     const token = localStorage.getItem('CC_Token');
@@ -23,8 +26,48 @@ export default function UserInfo({ handleIsInfo }) {
       })
       .then((data) => {
         setMyInfo(data.data);
+        console.log(myInfo);
       });
   }, []);
+
+  const toggleModify = () => {
+    setModify({ disabled: !modify.disabled });
+  };
+  const sendChangedInfo = (prop, value, password) => {
+    // axios.post(
+    //   'http://localhost:4000/users/login',
+    //   {
+    //     email: myInfo.email,
+    //     password,
+    //   },
+    //   {
+    //     'Content-Type': 'application/json',
+    //   },
+    // );
+    axios
+      .post(`http://localhost:4000/users/updateUserInfo/${info.uuid}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        ...info,
+        prop: value,
+        password,
+      })
+      .then((data) => {});
+  };
+  const disableAccount = () => {
+    console.log(1234);
+    axios
+      .delete(`http://localhost:4000/users/delete/${info.uuid}`, {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      })
+      .then(() => {
+        history.push('/login');
+      });
+    console.log(3232);
+  };
 
   console.log(myInfo);
   return (
@@ -43,9 +86,22 @@ export default function UserInfo({ handleIsInfo }) {
           <span className="block small">name</span>
           <div className="wrap-modify">
             <span className="inside-username">{myInfo.username}</span>
-            <button className="modify light">Modify</button>
+            <button
+              className="modify light"
+              disabled={modify.disabled}
+              onClick={toggleModify}
+            >
+              Modify
+            </button>
           </div>
-          <ModifyName />
+          {modify.disabled ? (
+            <ModifyName
+              toggleModify={toggleModify}
+              sendChangedInfo={sendChangedInfo}
+            />
+          ) : (
+            <></>
+          )}
 
           <span className="block small">email</span>
           <div className="wrap-modify">
@@ -66,8 +122,10 @@ export default function UserInfo({ handleIsInfo }) {
       <section className="auth">
         <h3 className="small-head">Password and authentication</h3>
         <button className="modify dark">Change password</button>
-        <h3 className="small-head">Disconnect Hotair</h3>
-        <button className="modify dark">Logout</button>
+        <h3 className="small-head">Account</h3>
+        <button className="modify dark" onClick={disableAccount}>
+          Disable account
+        </button>
       </section>
     </div>
   );
