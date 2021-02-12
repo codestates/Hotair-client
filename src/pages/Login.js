@@ -5,33 +5,10 @@ import GuestLogin from '../components/GuestLogin';
 import TopLogo from '../components/TopLogo';
 import Logo from '../assets/img/logo.svg';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 
-export default function Login(props) {
-  const [isLogin, setIsLogin] = useState(false);
-  const [accessToken, setAccessToken] = useState('');
-  const [emailParam, setEmailParam] = useState('');
-
+function Login(props) {
   const history = useHistory();
-
-  console.log(
-    'Login.js 에서 받은 props, CommonLogin 으로 내려야 한다 ',
-    props.setupSocket,
-  );
-
-  const loginHandler = (data) => {
-    setIsLogin(true);
-    setAccessToken(data);
-  };
-
-  useEffect(() => {
-    if (isLogin) {
-      console.log('IsLogin >>>>>', isLogin);
-      let headEmail = emailParam.split('@')[0];
-      console.log(headEmail);
-      history.push(`/main/${headEmail}`);
-    }
-  }, [isLogin, accessToken]);
 
   return (
     <>
@@ -42,15 +19,12 @@ export default function Login(props) {
         </h1>
         <h2 className="welcome semi-title">Welcome!</h2>
         <section className="login big-round">
-          <CommonLogin
-            loginHandler={loginHandler}
-            setEmailParam={setEmailParam}
-            setupSocket={props.setupSocket}
-          />
+          <CommonLogin setupSocket={props.setupSocket} />
           <SocialLogin />
         </section>
-        <GuestLogin />
+        <GuestLogin setupSocket={props.setupSocket} />
       </div>
     </>
   );
 }
+export default withRouter(Login);

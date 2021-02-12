@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const axios = require('axios');
+
+// 리팩토링 하기~
 
 export default function CommonLogin(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  // const [input, setInput] = useState({
+  //   email: '',
+  //   password: '',
+  // });
+  const history = useHistory();
   const handleSignin = () => {
     // console.log(props.loginHandler);
-    console.log('CommonLogin 에서의 props', props.setupSocket);
+    // console.log('CommonLogin 에서의 props', props.setupSocket);
     axios
       .post(
         'http://localhost:4000/users/login',
@@ -22,13 +28,11 @@ export default function CommonLogin(props) {
         },
       )
       .then((res) => {
-        props.loginHandler(res.data.token);
         localStorage.setItem('CC_Token', res.data.token);
         props.setupSocket();
+        history.push('/channels');
       })
       .catch((err) => console.log(err.response));
-
-    props.setEmailParam(email);
   };
 
   const onChangeEmail = (e) => {
@@ -66,7 +70,13 @@ export default function CommonLogin(props) {
       </form>
       <Link to="/signup" className="link-join">
         Don&apos;t have an ID?
-        <button className="text-green" type="button">
+        <button
+          onClick={() => {
+            history.push('/signup');
+          }}
+          className="text-green"
+          type="button"
+        >
           Join us
         </button>
       </Link>

@@ -1,17 +1,33 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, withRouter, useHistory } from 'react-router-dom';
 
 import './ChatRoomPage.css';
+import axios from 'axios';
 
-const ChatroomPage = ({ match, socket }) => {
-  const channelName = match.params.channelName;
-  console.log(channelName);
-  console.log(socket);
+const ChatroomPage = ({ channelName, socket, info, handleIsInfo }) => {
+  const history = useHistory();
+
   const [chats, setChats] = React.useState([]);
   const messageRef = React.useRef();
   const [uuid, setUuid] = React.useState('');
 
+  const logout = () => {
+    const token = localStorage.getItem('CC_Token');
+    if (!info.isUser) {
+      axios.delete(`http://localhost:4000/users/guestLogout/${info.uuid}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.removeItem('CC_Token');
+    } else {
+      localStorage.removeItem('CC_Token');
+    }
+    history.push('/login');
+  };
+
   const sendMessage = () => {
+    console.log(socket);
     if (socket) {
       socket.emit('channelChat', {
         channelName,
@@ -28,7 +44,6 @@ const ChatroomPage = ({ match, socket }) => {
       const payload = JSON.parse(atob(token.split('.')[1]));
       setUuid(payload.uuid);
     }
-    console.log('소켓소켓>>>>>>>>>', socket);
     if (socket) {
       socket.on('newText', (chatInfo) => {
         const newChatInfo = [...chats, chatInfo];
@@ -37,7 +52,6 @@ const ChatroomPage = ({ match, socket }) => {
     }
     //eslint-disable-next-line
   }, [chats]);
-
   React.useEffect(() => {
     if (socket) {
       socket.emit('joinChannel', {
@@ -102,6 +116,12 @@ const ChatroomPage = ({ match, socket }) => {
             </span>
           </div>
         ))}
+        <button className="FromChat logout" onClick={logout}>
+          logout
+        </button>
+        <button className="FromChat logout" onClick={handleIsInfo}>
+          Myinfo
+        </button>
       </div>
     </div>
   );

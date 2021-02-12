@@ -38,7 +38,7 @@ export default function Login() {
           },
         )
         .then((res) => setErrorMessage(res.data.message))
-        .then(() => history.push('/'))
+        .then(() => history.push('/login'))
         .catch((error) => setErrorMessage(error.response.data.message));
     }
   };
@@ -127,7 +127,7 @@ export default function Login() {
           {errorMessage ? (
             <span className="error-msg">{errorMessage}</span>
           ) : (
-            <span className="error-msg"></span>
+            <span className="error-msg" />
           )}
         </section>
       </div>

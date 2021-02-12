@@ -1,89 +1,71 @@
 import React, { useState, useEffect } from 'react';
+import '../App.css';
+import Chats from '../components/Chats';
+import Members from '../components/Members';
+import ChatroomPage from './ChatRoomPage';
+
+import { Link, useHistory, withRouter } from 'react-router-dom';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import ChatRoomPage from './ChatRoomPage';
+import UserInfo from './UserInfo';
 
-import './Main.css';
-
-export default function Main(props) {
-  const [rooms, setRooms] = useState([]);
-  const channelRef = React.createRef();
-
-  console.log('메인 페이지의 props >>>', props.socket);
-
-  const getChatrooms = () => {
-    axios
-      .get('http://localhost:4000/channels', {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('CC_Token'),
-        },
-      })
-      .then((res) => {
-        console.log('응답', res);
-        setRooms(res.data.channelList);
-      })
-      .catch((err) => {
-        setTimeout(getChatrooms, 3000);
-      });
-  };
-
-  const addChannel = () => {
-    const channelName = channelRef.current.value;
-    axios
-      .post(
-        'http://localhost:4000/channels/addChannel',
-        { channelName },
-        {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('CC_Token'),
-          },
-        },
-      )
-      .then((res) => {
-        setRooms([...rooms], res.data.channel);
-      });
-  };
+function Main({ socket, match }) {
+  // const token = localStorage.getItem('CC_Token');
+  const channelName = match.params.channelName;
+  const history = useHistory();
+  const [myInfo, setMyInfo] = useState({});
+  const [isInfo, setIsInfo] = useState(false);
 
   useEffect(() => {
-    getChatrooms();
+    const token = localStorage.getItem('CC_Token');
+    const payload = JSON.parse(atob(token.split('.')[1]));
+
+    axios
+      .get(`http://localhost:4000/users/${payload.uuid}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((data) => {
+        setMyInfo(data.data);
+      });
   }, []);
 
+  const handleIsInfo = () => {
+    setIsInfo(!isInfo);
+  };
+
+  const logout = () => {
+    const token = localStorage.getItem('CC_Token');
+    if (!myInfo.isUser) {
+      axios.delete(`http://localhost:4000/users/guestLogout/${myInfo.uuid}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.removeItem('CC_Token');
+    } else {
+      localStorage.removeItem('CC_Token');
+    }
+    history.push('/login');
+  };
+
   return (
-    <div className="joinOuterContainer">
-      <div className="chatrooms">
-        <h1 className="heading channels">Channels</h1>
-        {rooms.map((room) => (
-          <div key={room.channelName} className="chatroom">
-            <div>{room.channelName}</div>
-            <Link to={'/chatroom/' + room.channelName}>
-              <div className="join">Join</div>
-            </Link>
-          </div>
-        ))}
-      </div>
-      <div className="joinInnerContainer">
-        <h1 className="heading">Create Room</h1>
-        <div>
-          <input
-            placeholder="Create Your Chatting Room"
-            className="joinInput mt-20"
-            type="text"
-            ref={channelRef}
+    <>
+      {isInfo ? (
+        <UserInfo info={myInfo} handleIsInfo={handleIsInfo} />
+      ) : (
+        <>
+          <ChatRoomPage
+            handleIsInfo={handleIsInfo}
+            info={myInfo}
+            channelName={channelName}
+            socket={socket}
           />
-        </div>
-        <button className="button mt-20" onClick={addChannel}>
-          Create Chatroom
-        </button>
-      </div>
-    </div>
+        </>
+      )}
+    </>
   );
 }
-{
-  /* <Link
-onClick={(event) => (!rooms ? event.preventDefault() : null)}
-to={`/main/:userid?&room=${rooms}`}
->
-<button className="button mt-20" type="submit">
-  Enter
-</button>
-</Link> */
-}
+
+export default withRouter(Main);
