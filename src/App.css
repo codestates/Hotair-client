@@ -52,7 +52,6 @@ li.item-chat{
 }
 h3{
   grid-area: membertitle;
-  background: #253e59;
   height: 30px;
   margin: 0;
 }

@@ -1,0 +1,49 @@
+.popup-modify {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #364f6b;
+  padding: 30px;
+  width: 400px;
+}
+.popup-modify button.btn-cancel {
+  background: rgba(245, 245, 245, 0.2);
+}
+.wrap-btn {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.wrap-btn button {
+  padding: 8px 30px;
+}
+.btn-out {
+  position: absolute;
+  background: rgba(245, 245, 245, 0.2);
+  right: 30px;
+}
+.popup-title {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.table-modify .description-change,
+.table-modify .name,
+.table-modify .password {
+  font-size: 0.9rem;
+}
+.table-modify label{
+  display: block;
+  margin-bottom: 10px;
+}
+.table-modify{
+  margin: 20px 0;
+}
+.table-modify > label > input {
+  background: rgba(245, 245, 245, 0.2);
+  margin-left: 14px;
+  padding: 5px 5px 5px 10px;
+}
+.btn-done{
+  background: #fc5185;
+}
