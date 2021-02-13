@@ -25,10 +25,25 @@
 
 <br>
 
+# ⚒ Stacks
+//! 프론트와 백에 사용된 기술들을 입력하거나 이미지를 붙일 예정
+
+<br>
+
+# 🧰 Flow Chart
+//! 프론트와 백의 각각 플로우 차트 이미지를 붙일 예정
+
+<br>
+
 # 😄 Crew Information
-| TEAM      | Position  | Github                                           |
-| ---------- |--------- | ------------------------------------------------ |
-| 🧑🏻‍💻 안정현 | BackEnd  | [@psh0121](https://github.com/psh0121)        |
+| TEAM      | Position  | Github                                        |
+| ---------  |--------- | --------------------------------------------- |
+| 🧑🏻‍💻 안정현 | BackEnd  | [@jha0402](https://github.com/jha0402)        |
 | 👩🏻‍💻 박수현 | BackEnd  | [@psh0121](https://github.com/psh0121)        |
-| 🧑🏻‍💻 정광묵 | FrontEnd | [@psh0121](https://github.com/psh0121)        |
-| 👩🏻‍💻 이마리 | FrontEnd | [@psh0121](https://github.com/psh0121)        |
+| 🧑🏻‍💻 정광묵 | FrontEnd | [@seolleung2](https://github.com/seolleung2)  |
+| 👩🏻‍💻 이마리 | FrontEnd | [@soonduck](https://github.com/soonduck)      |
+
+<br>
+
+# 👓 More Information...
+//! 위키에 접근할 수 있는 링크를 넣어둘 예정
