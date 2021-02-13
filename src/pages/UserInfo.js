@@ -103,7 +103,7 @@ export default function UserInfo({ info, handleIsInfo }) {
       </section>
       <div className="line" />
       <section className="auth">
-        <h3 className="small-head">Password and authentication</h3>
+        <h3 className="small-head">Password and authentication!</h3>
         <button className="modify dark">Change password</button>
         <h3 className="small-head">Account</h3>
         <button className="modify dark" onClick={disableAccount}>
