@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+<p align="center">
+<img width="400" alt="스크린샷 2021-02-13 오후 9 20 58" src="https://user-images.githubusercontent.com/65241463/107849869-6ae11e80-6e41-11eb-8b1f-9eeeb1f84c6b.png">
+</p>
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">💬 채널기반 메세징 플랫폼 💬</h3>
+<h1 align="center" style="color:pink"> " Hotair " </h1>
 
-## Available Scripts
+# 🤷🏻‍♀️ Hotair?
+우리는 상대방과 채팅을 주고 받을 때, <br>
+아무런 의미없는 이야기부터 누군가에겐 밝힐 수 있는 비밀이야기이나 중요한 이야기까지<br>
+채팅이라는 앱 하나많으로 대화를 주고 받고 있습니다.
+<br><br>
+`Hotair`는 허풍, 헛소리라는 의미로 다른 메세징 플랫폼인 `Slack`과 `Discord`의 영감을 받아 <br>
+다양한 종류, 다양한 사람들이 모여 가지각색 다양한 대화를 나누는 채팅 앱 입니다.
 
-In the project directory, you can run:
+<br>
 
-### `yarn start`
+# 🤷🏻‍♂️ Why did you make it?
+단순히 메시지를 주고받는 프로그램부터 동영상이나 음성을 주고받는 프로그램까지, <br>
+우리는 평소에 다양한 종류의 채팅 응용프로그램들을 일상생활속에서 사용하고 있습니다.<br><br>
+이때 저희는 이러한 다양한 프로그램들을 접해보면서 <br>
+직접 채팅앱을 이해하고 제작하는 기회를 가지면 좋겠다는 생각을 하게되었고, <br>
+완벽하지는 않더라도 서로의 메시지를 주고받을 수 있는 `채널 기반 메세징 플랫폼`을 제작하게 되었습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 😄 Crew Information
+| TEAM      | Position  | Github                                           |
+| ---------- |--------- | ------------------------------------------------ |
+| 🧑🏻‍💻 안정현 | BackEnd  | [@psh0121](https://github.com/psh0121)        |
+| 👩🏻‍💻 박수현 | BackEnd  | [@psh0121](https://github.com/psh0121)        |
+| 🧑🏻‍💻 정광묵 | FrontEnd | [@psh0121](https://github.com/psh0121)        |
+| 👩🏻‍💻 이마리 | FrontEnd | [@psh0121](https://github.com/psh0121)        |
