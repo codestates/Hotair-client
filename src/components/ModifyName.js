@@ -5,6 +5,13 @@ export default function ModifyName({ toggleModify, sendChangedInfo }) {
   const [username, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
 
+  const onChangeUserName = (e) => {
+    setUserName(e.target.value);
+  };
+
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
   return (
     <div className="popup-modify popup-active">
       <button className="btn-out" onClick={toggleModify}>
@@ -17,12 +24,25 @@ export default function ModifyName({ toggleModify, sendChangedInfo }) {
       <form action="#" className="table-modify" method="post">
         <label htmlFor="inputChangeName" className="name">
           name
-          <input id="inputChangeName" type="text" />
+          <input
+            id="inputChangeName"
+            onChange={onChangeUserName}
+            type="text"
+            defaultValue={username}
+          />
         </label>
 
-        <label htmlFor="inputCheckPasswordForName" className="password">
+        <label
+          htmlFor="inputCheckPasswordForName"
+          onChange={onChangePassword}
+          className="password"
+        >
           current password
-          <input id="inputCheckPasswordForName" type="password" />
+          <input
+            id="inputCheckPasswordForName"
+            type="password"
+            defaultValue={password}
+          />
         </label>
 
         <div className="wrap-btn">

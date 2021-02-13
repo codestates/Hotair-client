@@ -15,35 +15,27 @@ export default function UserInfo({ info, handleIsInfo }) {
     disabled: false,
   });
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('CC_Token');
-  //   const payload = JSON.parse(atob(token.split('.')[1]));
-  //   axios
-  //     .get(`http://localhost:4000/users/${payload.uuid}`, {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     })
-  //     .then((data) => {
-  //       setMyInfo(data.data);
-  //       console.log(myInfo);
-  //     });
-  // }, []);
-
   const toggleModify = () => {
     setModify({ disabled: !modify.disabled });
   };
   const sendChangedInfo = (prop, value, password) => {
     axios
-      .post(`http://localhost:4000/users/updateUserInfo/${info.uuid}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      .put(
+        `http://localhost:4000/users/updateUserInfo/${info.uuid}`,
+        {
+          ...info,
+          username: value,
+          password,
         },
-        ...info,
-        prop: value,
-        password,
-      })
-      .then((data) => {});
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      )
+      .then((data) => {
+        toggleModify();
+      });
   };
   const disableAccount = () => {
     axios
