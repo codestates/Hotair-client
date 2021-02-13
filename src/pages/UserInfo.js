@@ -11,20 +11,27 @@ export default function UserInfo({ info, handleIsInfo }) {
   const token = localStorage.getItem('CC_Token');
   const [myInfo, setMyInfo] = React.useState({});
   const history = useHistory();
+
   const [modify, setModify] = React.useState({
+    disabled: false,
+  });
+  const [modify2, setModify2] = React.useState({
     disabled: false,
   });
 
   const toggleModify = () => {
     setModify({ disabled: !modify.disabled });
   };
-  const sendChangedInfo = (prop, value, password) => {
+  const toggleModify2 = () => {
+    setModify2({ disabled: !modify2.disabled });
+  };
+  const sendChangedInfo = (prop, username, password) => {
     axios
       .put(
         `http://localhost:4000/users/updateUserInfo/${info.uuid}`,
         {
           ...info,
-          username: value,
+          username,
           password,
         },
         {
@@ -34,9 +41,36 @@ export default function UserInfo({ info, handleIsInfo }) {
         },
       )
       .then((data) => {
+        setMyInfo(data.data);
         toggleModify();
+      })
+      .then(() => {});
+  };
+
+  const sendChangedInfo2 = (prop, email, password) => {
+    console.log({ ...info });
+
+    axios
+      .put(
+        `http://localhost:4000/users/updateUserInfo/${info.uuid}`,
+        {
+          ...info,
+          email: email,
+          password,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      )
+      .then((data) => {
+        console.log('수정되면 데이터가', data.data);
+        setMyInfo(data.data);
+        toggleModify2();
       });
   };
+
   const disableAccount = () => {
     axios
       .delete('http://localhost:4000/users/delete', {
@@ -52,7 +86,6 @@ export default function UserInfo({ info, handleIsInfo }) {
       });
   };
 
-  console.log(myInfo);
   return (
     <div className="wrap-userinfo">
       <div className="wrap-escape" onClick={handleIsInfo}>
@@ -89,9 +122,22 @@ export default function UserInfo({ info, handleIsInfo }) {
           <span className="block small">email</span>
           <div className="wrap-modify">
             <span className="block inside-email">{info.email}</span>
-            <button className="modify light">Modify</button>
+            <button
+              className="modify light"
+              disabled={modify2.disabled}
+              onClick={toggleModify2}
+            >
+              Modify
+            </button>
           </div>
-          <ModifyEmail />
+          {modify2.disabled ? (
+            <ModifyEmail
+              toggleModify2={toggleModify2}
+              sendChangedInfo2={sendChangedInfo2}
+            />
+          ) : (
+            <></>
+          )}
 
           <span className="block small">phone number</span>
           <div className="wrap-modify">
@@ -103,7 +149,7 @@ export default function UserInfo({ info, handleIsInfo }) {
       </section>
       <div className="line" />
       <section className="auth">
-        <h3 className="small-head">Password and authentication!</h3>
+        <h3 className="small-head">Password and authentication</h3>
         <button className="modify dark">Change password</button>
         <h3 className="small-head">Account</h3>
         <button className="modify dark" onClick={disableAccount}>

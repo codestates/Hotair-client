@@ -52,11 +52,8 @@ function App() {
             render={() => <Main socket={socket} />}
             exact
           />
-          <Route
-            path="/userinfo"
-            render={() => <UserInfo socket={socket} />}
-            exact
-          />
+
+          <Route path="/userinfo" component={UserInfo} exact />
         </Switch>
       </BrowserRouter>
     </>
