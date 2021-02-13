@@ -31,7 +31,7 @@
 <br>
 
 # ⚒ Stacks
-//! 프론트와 백에 사용된 기술들을 입력하거나 이미지를 붙일 예정
+<img width="800" alt="스크린샷 2021-02-13 오후 9 20 58" src="https://user-images.githubusercontent.com/65241463/107855397-5878dc00-6e65-11eb-8f82-a6a16a1942da.jpeg">
 
 <br>
 
