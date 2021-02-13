@@ -38,6 +38,8 @@ const ChatroomPage = ({ channelName, socket, info, handleIsInfo }) => {
     }
   };
 
+  let users = [];
+
   React.useEffect(() => {
     const token = localStorage.getItem('CC_Token');
     if (token) {
@@ -50,8 +52,14 @@ const ChatroomPage = ({ channelName, socket, info, handleIsInfo }) => {
         setChats(newChatInfo);
       });
     }
+    for (let i = 0; i < chats.length; i++) {
+      if (!users.indexOf(chats[i].username)) {
+        users.push(chats[i].username);
+      }
+    }
     //eslint-disable-next-line
   }, [chats]);
+
   React.useEffect(() => {
     if (socket) {
       socket.emit('joinChannel', {
@@ -107,21 +115,51 @@ const ChatroomPage = ({ channelName, socket, info, handleIsInfo }) => {
       </div>
       <div className="currentUser">
         <h1 className="heading">Users</h1>
-        {chats.map((chat, i) => (
-          <div key={i} className="current">
-            <span
-              className={uuid === chat.uuid ? 'ownMessage' : 'otherMessage'}
-            >
-              {chat.username}
-            </span>
-          </div>
-        ))}
+        {chats
+          .map((chat) => chat.username)
+          .filter((el, index) => {
+            return chats.map((chat) => chat.username).indexOf(el) === index;
+          })
+          .map((user, i) => (
+            <div key={i} className="current">
+              <span className="ownMessage">{user}</span>
+            </div>
+          ))}
+        {/* <div key={i} className="current">
+              <span
+                className={uuid === chat.uuid ? 'ownMessage' : 'otherMessage'}
+              >
+                {chat.username}
+              </span>
+            </div>; */}
         <button className="FromChat logout" onClick={logout}>
           logout
         </button>
         <button className="FromChat logout" onClick={handleIsInfo}>
           Myinfo
         </button>
+      </div>
+      <div className="textContainer">
+        <div>
+          <h1>
+            Realtime Chat Application
+            <span role="img" aria-label="emoji">
+              💬
+            </span>
+          </h1>
+          <h2>
+            Created with React, Express, Node and Socket.IO
+            <span role="img" aria-label="emoji">
+              ❤️
+            </span>
+          </h2>
+          <h2>
+            Try it out right now!
+            <span role="img" aria-label="emoji">
+              ⬅️
+            </span>
+          </h2>
+        </div>
       </div>
     </div>
   );
