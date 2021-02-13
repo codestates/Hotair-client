@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import '../App.css';
 
 import { useHistory, withRouter } from 'react-router-dom';
@@ -7,7 +9,6 @@ import ChatRoomPage from './ChatRoomPage';
 import UserInfo from './UserInfo';
 
 function Main({ socket, match }) {
-  // const token = localStorage.getItem('CC_Token');
   const channelName = match.params.channelName;
   const history = useHistory();
   const [myInfo, setMyInfo] = useState({});
@@ -26,7 +27,7 @@ function Main({ socket, match }) {
       .then((data) => {
         setMyInfo(data.data);
       });
-  }, []);
+  }, [myInfo]);
 
   const handleIsInfo = () => {
     setIsInfo(!isInfo);
@@ -52,14 +53,12 @@ function Main({ socket, match }) {
       {isInfo ? (
         <UserInfo info={myInfo} handleIsInfo={handleIsInfo} />
       ) : (
-        <>
-          <ChatRoomPage
-            handleIsInfo={handleIsInfo}
-            info={myInfo}
-            channelName={channelName}
-            socket={socket}
-          />
-        </>
+        <ChatRoomPage
+          handleIsInfo={handleIsInfo}
+          info={myInfo}
+          channelName={channelName}
+          socket={socket}
+        />
       )}
     </>
   );

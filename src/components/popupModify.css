@@ -29,14 +29,15 @@
 }
 .table-modify .description-change,
 .table-modify .name,
-.table-modify .password {
+.table-modify .password,
+.table-modify .email {
   font-size: 0.9rem;
 }
-.table-modify label{
+.table-modify label {
   display: block;
   margin-bottom: 10px;
 }
-.table-modify{
+.table-modify {
   margin: 20px 0;
 }
 .table-modify > label > input {
@@ -44,6 +45,11 @@
   margin-left: 14px;
   padding: 5px 5px 5px 10px;
 }
-.btn-done{
+.btn-done {
   background: #fc5185;
+}
+
+#inputChangeEmail,
+#inputCheckPasswordForEmail {
+  background: rgba(245, 245, 245, 0.2);
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './popupModify.css';
 
 export default function ModifyName({ toggleModify, sendChangedInfo }) {
@@ -12,6 +12,7 @@ export default function ModifyName({ toggleModify, sendChangedInfo }) {
   const onChangePassword = (e) => {
     setPassword(e.target.value);
   };
+
   return (
     <div className="popup-modify popup-active">
       <button className="btn-out" onClick={toggleModify}>
@@ -32,15 +33,12 @@ export default function ModifyName({ toggleModify, sendChangedInfo }) {
           />
         </label>
 
-        <label
-          htmlFor="inputCheckPasswordForName"
-          onChange={onChangePassword}
-          className="password"
-        >
+        <label htmlFor="inputCheckPasswordForName" className="password">
           current password
           <input
             id="inputCheckPasswordForName"
             type="password"
+            onChange={onChangePassword}
             defaultValue={password}
           />
         </label>
