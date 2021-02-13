@@ -5,6 +5,11 @@
 
 <h3 align="center">💬 채널기반 메세징 플랫폼 💬</h3>
 <h1 align="center" style="color:pink"> " Hotair " </h1>
+<p align="center">
+<img src="https://img.shields.io/badge/version-1.0.0-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/node-v14.15.4-green?style=flat">
+<img src="https://img.shields.io/badge/npm-6.14.0-blue?style=flat">
+</p>
 
 # 🤷🏻‍♀️ Hotair?
 우리는 상대방과 채팅을 주고 받을 때, <br>
@@ -31,7 +36,12 @@
 <br>
 
 # 🧰 Flow Chart
-//! 프론트와 백의 각각 플로우 차트 이미지를 붙일 예정
+
+* ### Client-Side Flow Chart
+![Hotair-frontend flow (1)](https://user-images.githubusercontent.com/69143207/107186823-53acc600-6a28-11eb-84cc-44a010017b0c.jpg)
+
+* ### Server-Side Flow Chart
+![server_flowchart](https://user-images.githubusercontent.com/65241463/107119662-7629cc80-68cc-11eb-9867-ec5424a6e1b1.gif)
 
 <br>
 
@@ -46,4 +56,5 @@
 <br>
 
 # 👓 More Information...
-//! 위키에 접근할 수 있는 링크를 넣어둘 예정
+
+### 👉 더 많은 정보를 원한다면 [Wiki](https://github.com/codestates/Hotair-client/wiki)에 접속해 주세요!
