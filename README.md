@@ -1,8 +1,4 @@
-<style>
-  h3{
-    color: hotpink
-  }
-</stryle>
+
 
 <p align="center">
 <img width="400" alt="스크린샷 2021-02-13 오후 9 20 58" src="https://user-images.githubusercontent.com/65241463/107849869-6ae11e80-6e41-11eb-8b1f-9eeeb1f84c6b.png">
