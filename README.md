@@ -51,7 +51,7 @@
 # 😄 Crew Information
 | TEAM      | Position  | Github                                        |
 | ---------  |--------- | --------------------------------------------- |
-| 🧑🏻‍💻 안정현 | BackEnd  | [@jha0402](https://github.com/jha0402)        |
+| 🧑🏻‍💻 안정현 | FullStack | [@jha0402](https://github.com/jha0402)        |
 | 👩🏻‍💻 박수현 | BackEnd  | [@psh0121](https://github.com/psh0121)        |
 | 🧑🏻‍💻 정광묵 | FrontEnd | [@seolleung2](https://github.com/seolleung2)  |
 | 👩🏻‍💻 이마리 | FrontEnd | [@soonduck](https://github.com/soonduck)      |
